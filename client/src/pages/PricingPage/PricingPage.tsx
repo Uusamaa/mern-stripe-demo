@@ -1,6 +1,5 @@
 import React from 'react';
-import 'animate.css';
-import useStripeCheckout from './useStripeCheckout';
+import useStripeCheckout from './useStripeCheckout.ts';
 
 interface Package {
   id: string;
