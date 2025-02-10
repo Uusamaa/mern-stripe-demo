@@ -1,5 +1,4 @@
 import React from 'react';
-import 'animate.css';
 
 interface Package {
   id: string;
