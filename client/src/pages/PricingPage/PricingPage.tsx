@@ -1,5 +1,6 @@
 import React from 'react';
 import 'animate.css';
+import useStripeCheckout from './useStripeCheckout';
 
 interface Package {
   id: string;
@@ -14,23 +15,7 @@ const packages: Package[] = [
 ];
 
 const PricingPage: React.FC = () => {
-  const handleBuy = async (packageId: string) => {
-    try {
-      const response = await fetch('/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ packageId }),
-      });
-      const data = await response.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert('Error creating checkout session');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
+  const { handleCheckout } = useStripeCheckout(); // Use the custom hook
 
   return (
     <div className="p-8 bg-gray-50 min-h-screen">
@@ -47,7 +32,7 @@ const PricingPage: React.FC = () => {
             <h2 className="text-2xl font-semibold mb-2">{pkg.name}</h2>
             <p className="text-xl text-gray-700 mb-4">{pkg.price}</p>
             <button
-              onClick={() => handleBuy(pkg.id)}
+              onClick={() => handleCheckout(pkg.id)}
               className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300"
             >
               Buy Now
