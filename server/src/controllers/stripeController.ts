@@ -9,15 +9,15 @@ export const createCheckoutSession = async (req: Request, res: ExResponse): Prom
 
         switch (packageId) {
             case 'basic':
-                price = 5000;
+                price = 5000; // $50.00 in cents
                 description = 'Basic Software Development Package';
                 break;
             case 'standard':
-                price = 10000;
+                price = 10000; // $100.00 in cents
                 description = 'Standard Software Development Package';
                 break;
             case 'premium':
-                price = 20000;
+                price = 20000; // $200.00 in cents
                 description = 'Premium Software Development Package';
                 break;
             default:
