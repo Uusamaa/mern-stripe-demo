@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import PricingPage from './PricingPage.tsx';
-import Success from './Success.tsx';
-import Cancel from './Cancel.tsx';
+import PricingPage from './pages/PricingPage/PricingPage';
+import Cancel from './pages/Cancel';
+import Success from './pages/Success';
 
 const App: React.FC = () => {
   return (
